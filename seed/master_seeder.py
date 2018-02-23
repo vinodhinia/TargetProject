@@ -44,13 +44,19 @@ product_data = [
         'value' : 17.99,
         'currency_code' : 'USD'
         }
+    },{
+        'product_id' : 13860428,
+        'current_price' : {
+            'value' : 17.99,
+            'currency_code' : 'USD'
+        }
     }
 
 ]
 
 headers = {'Content-type': 'application/json'}
 for product in product_data:
-    import pdb ;pdb.set_trace()
+    #import pdb ;pdb.set_trace()
     r = requests.post(PRODUCT_API_END_POINT, data=json.dumps({'product' : product}), headers=headers)
     if r.status_code != requests.status_codes.codes.OK:
         raise Exception("Product seeding failed")

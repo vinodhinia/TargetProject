@@ -1,9 +1,5 @@
 from mongokit import Document, Connection
 
-from datetime import datetime
-from datetime import date
-
-
 MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
 
