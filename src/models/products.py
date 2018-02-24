@@ -1,13 +1,14 @@
 from mongokit import Document, Connection
+from db import db
 
-MONGODB_HOST = 'localhost'
-MONGODB_PORT = 27017
+#MONGODB_HOST = 'localhost'
+#MONGODB_PORT = 27017
+#
+#connection = Connection(MONGODB_HOST,
+#                        MONGODB_PORT)
 
-connection = Connection(MONGODB_HOST,
-                        MONGODB_PORT)
 
-
-@connection.register
+@db.register
 class Product(Document):
     __database__ = 'target'
     __collection__ = 'products'
@@ -15,7 +16,7 @@ class Product(Document):
     use_dot_notation = True
 
     structure = {
-        'product_id': int,
+        'id': int,
         'current_price' : {
             'value' : float,
             'currency_code' : basestring
