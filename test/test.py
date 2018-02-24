@@ -3,8 +3,6 @@ import requests
 import random
 import json
 
-
-
 class TestProducts(unittest.TestCase):
     def setUp(self):
         self.APP_HOST = 'http://127.0.0.1'
@@ -36,8 +34,6 @@ class TestProducts(unittest.TestCase):
         response = requests.get(GET_PRODUCTS_URL)
         response_dict = json.loads(response.content)
         self.assert_(response_dict['name'])
-
-
 
 if __name__ == "__main__":
     unittest.main()
