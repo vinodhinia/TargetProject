@@ -23,8 +23,12 @@ class ProductEncoder(json.JSONEncoder):
 app = Flask(__name__)
 app.config.from_object(__name__)
 
+app.config["MONGO_DBNAME"] = "target"
+
 app.config['MONGODB_SETTINGS'] = {
     'db': 'target',
+    'username' : 'targetUser',
+    'password' : 'target123',
     'host': 'localhost',
     'port': 27017
 }
@@ -84,7 +88,7 @@ def get_data_from_external_api(id):
 
     product = db.Product.find_one({'product_id' : int(id)})
     product['name'] = product_name
-    #del product['_id']
+    del product['_id']
     return jsonify(product)
 
 
@@ -93,6 +97,7 @@ def create_product():
     if request.method == 'POST':
         product = db.Product()
         req_data = request.get_json()
+
 
         product.product_id = req_data['product']['product_id']
         product.current_price = req_data['product']['current_price']
@@ -103,12 +108,3 @@ def create_product():
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
-
-
-
-
-
-
-
-
-
