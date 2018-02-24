@@ -1,6 +1,4 @@
 from flask import Flask, jsonify, request, render_template, redirect, url_for
-from flask_restful import Api
-from mongokit import Document, Connection
 
 from datetime import datetime
 from models.products import Product
