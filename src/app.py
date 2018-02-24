@@ -27,18 +27,6 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.json_encoder = ProductEncoder
 
-
-@app.route('/', methods=['GET'])
-def get_all_products():
-
-    products = db.Product.find()
-    products_list = []
-    for product in products:
-        products_list.append(product)
-
-    return jsonify(products_list)
-
-
 @app.route('/products/<id>', methods=['GET', 'PUT'])
 def get_product_by_id(id):
 
