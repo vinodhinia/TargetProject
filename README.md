@@ -22,7 +22,7 @@
 - Contains the methods to handle the GET, POST, PUT requests.
 
   - Products
-      - GET  - http://127.0.0.1:5000/target/products/{id} - Gets the product name from an external API and combines it with the product information in local database.
-      - PUT  - http://127.0.0.1:5000/target/products/{id} - Takes JSON request body similar to the GET response as input, and updates the product’s price in the data store
+      - GET  - http://127.0.0.1:5000/target/product/{id} - Gets the product name from an external API and combines it with the product information in local database and displays it.
+      - PUT  - http://127.0.0.1:5000/target/product/{id} - Takes JSON request body similar to the GET response as input, and updates the product’s price in the data store
       - POST - http://127.0.0.1:5000/target/products - Create a product in the database
       - GET  - http://127.0.0.1:5000/target/products - Retrieves all the products in the database.

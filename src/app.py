@@ -25,7 +25,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.json_encoder = ProductEncoder
 
-@app.route('/target/products/<id>', methods=['GET', 'PUT'])
+@app.route('/target/product/<id>', methods=['GET', 'PUT'])
 def access_product_by_id(id):
 
     if request.method == 'GET':
