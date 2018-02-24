@@ -6,7 +6,7 @@ APP_PORT = '5000'
 APP_URL = '{}:{}'.format(APP_HOST,APP_PORT)
 
 
-PRODUCT_API_END_POINT = '{}/{}'.format(APP_URL, 'products')
+PRODUCT_API_END_POINT = '{}/{}'.format(APP_URL, 'target/products')
 
 
 product_data = [
@@ -56,7 +56,7 @@ product_data = [
 
 headers = {'Content-type': 'application/json'}
 for product in product_data:
-    #import pdb ;pdb.set_trace()
+    import pdb ;pdb.set_trace()
     r = requests.post(PRODUCT_API_END_POINT, data=json.dumps({'product' : product}), headers=headers)
     if r.status_code != requests.status_codes.codes.OK:
         raise Exception("Product seeding failed")

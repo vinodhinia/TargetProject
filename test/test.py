@@ -9,7 +9,7 @@ class TestProducts(unittest.TestCase):
         self.APP_PORT = '5000'
         self.APP_URL = '{}:{}'.format(self.APP_HOST, self.APP_PORT)
 
-        self.PRODUCT_API_END_POINT = '{}/{}'.format(self.APP_URL, 'products')
+        self.PRODUCT_API_END_POINT = '{}/{}'.format(self.APP_URL, 'target/products')
         self.id = random.randint(10000,100000)
 
 
@@ -30,7 +30,7 @@ class TestProducts(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_get_product_details_from_ext_api(self):
-        GET_PRODUCTS_URL = '{}:{}/products/{}'.format(self.APP_HOST, self.APP_PORT, 13860428)
+        GET_PRODUCTS_URL = '{}:{}/target/products/{}'.format(self.APP_HOST, self.APP_PORT, 13860428) #the number must be replaced with self.id
         response = requests.get(GET_PRODUCTS_URL)
         response_dict = json.loads(response.content)
         self.assert_(response_dict['name'])

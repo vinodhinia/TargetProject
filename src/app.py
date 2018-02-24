@@ -25,8 +25,8 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.json_encoder = ProductEncoder
 
-@app.route('/products/<id>', methods=['GET', 'PUT'])
-def get_product_by_id(id):
+@app.route('/target/products/<id>', methods=['GET', 'PUT'])
+def access_product_by_id(id):
 
     if request.method == 'GET':
         url = EXTERNAL_API.format(id)
@@ -49,7 +49,7 @@ def get_product_by_id(id):
         return jsonify(product)
 
 
-@app.route('/products', methods=['GET', 'POST'])
+@app.route('/target/products', methods=['GET', 'POST'])
 def create_product():
     if request.method == 'GET':
         products = db.Product.find()
