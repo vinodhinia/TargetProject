@@ -3,7 +3,7 @@
 [Host](http://ec2-52-41-196-53.us-west-2.compute.amazonaws.com/target/products)
 
 ## API Documentation ##
-[Documentation](https://documenter.getpostman.com/view/1637657/collection/RVg2AogE)
+[Documentation](https://documenter.getpostman.com/view/1637657/targetapi/RVg2AogE)
 
 #### Folders ####
 - seed
@@ -22,7 +22,7 @@
 - Contains the methods to handle the GET, POST, PUT requests.
 
   - Products
-      - GET  - http://127.0.0.1:5000/products/<id> - Gets the product name from an external API and combines it with the product information in local database.
-      - PUT  - http://127.0.0.1:5000/products/<id> - Takes JSON request body similar to the GET response as input, and updates the product’s price in the data store
-      - POST - http://127.0.0.1:5000/products - Create a product in the database
-      - GET  - http://127.0.0.1:5000/products - Retrieves all the products in the database.
+      - GET  - http://127.0.0.1:5000/target/products/<id> - Gets the product name from an external API and combines it with the product information in local database.
+      - PUT  - http://127.0.0.1:5000/target/products/<id> - Takes JSON request body similar to the GET response as input, and updates the product’s price in the data store
+      - POST - http://127.0.0.1:5000/target/products - Create a product in the database
+      - GET  - http://127.0.0.1:5000/target/products - Retrieves all the products in the database.
