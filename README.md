@@ -3,7 +3,7 @@
 [Host](http://ec2-52-41-196-53.us-west-2.compute.amazonaws.com/target/products)
 
 ## API Documentation ##
-[Documentation](https://documenter.getpostman.com/view/1637657/targetapi/RVg2AogE)
+[Documentation](https://documenter.getpostman.com/view/1637657/targetapi/RVg2B9EX)
 
 #### Folders ####
 - seed
