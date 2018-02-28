@@ -30,18 +30,23 @@ def access_product_by_id(id):
 
     if request.method == 'GET':
         url = EXTERNAL_API.format(id)
-
         product_data = requests.get(url).json()
-        product_name = str(product_data['product']['item']['product_description']['title'])
+
+        try:
+            product_name = str(product_data['product']['item']['product_description']['title'])
+        except Exception:
+            return json.dumps({"message" : "Product details not found "}), 404
 
         product = db.Product.find_one({'id': int(id)}, {'_id': False})
         product['name'] = product_name
-        return jsonify(product)
+        return jsonify(product), 200
+
+
 
     elif request.method == 'PUT':
-
         req_data = request.get_json()
         product = db.Product.find_one({'id' : int(id)})
+        
         product.current_price.value = req_data['current_price']['value']
         product.current_price.currency_code = req_data['current_price']['currency_code']
         #product = db.Product.update({'id' : int(req_data['id'])}, { '$set' : {'current_price' : {'value' : req_data['current_price']['value'], 'currency_code' : str(req_data['current_price']['currency_code'])}}})
